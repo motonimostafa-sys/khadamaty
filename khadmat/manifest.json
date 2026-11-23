@@ -1,0 +1,13 @@
+{
+  "name": "Zilx خدمات",
+  "short_name": "Zilx",
+  "description": "إعلانات مبوبة: عربيات، شقق، موبايلات، مواقع وخدمات",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0d1030",
+  "theme_color": "#0d1030",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

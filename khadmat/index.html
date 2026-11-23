@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zilx خدمات | إعلانات مبوبة: عربيات، شقق، موبايلات وخدمات</title>
+<meta name="description" content="Zilx خدمات: موقع إعلانات مبوبة مجاني في مصر. اعرض أو دوّر على عربيات وشقق للبيع والإيجار وموبايلات ولابتوبات وخدمات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('zt')||'dark'}catch(e){}</script>
+<meta name="theme-color" content="#0d1030">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zilx خدمات">
+<meta property="og:title" content="Zilx خدمات | إعلانات مبوبة: عربيات، شقق، موبايلات، مواقع وخدمات">
+<meta property="og:description" content="اعرض أو دوّر على عربيات وموتوسيكلات وشقق وموبايلات ولابتوبات ومواقع وتطبيقات وخدمات. مجاني وسهل.">
+<meta name="twitter:card" content="summary">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Zilx خدمات","alternateName":"Zilx","description":"منصة إعلانات مبوبة","publisher":{"@type":"Organization","name":"Zilx","founder":{"@type":"Person","name":"مصطفى محمود"}}}</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.4/dist/umd/supabase.min.js"></script>
+<!-- بعد قبول أدسنس: حط كود جوجل هنا -->
+<style>
+:root{--bg:#0d1030;--bg2:#161a45;--card:#1b2054;--line:#2c3270;--tx:#f3f4ff;--mut:#9aa0d6;--vio:#7a5cff;--pink:#ff4fa3;--gold:#ffb524;--mint:#25e3a4}
+*{box-sizing:border-box;margin:0}
+body{font-family:'IBM Plex Sans Arabic',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;line-height:1.7}
+h1,h2,h3,.brand{font-family:'Readex Pro',sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.hide{display:none!important}
+.hero{position:relative;overflow:hidden;padding:28px 20px 56px;text-align:center;background:
+ radial-gradient(600px 300px at 15% 0%,rgba(122,92,255,.55),transparent 70%),
+ radial-gradient(500px 300px at 90% 20%,rgba(255,79,163,.4),transparent 70%),
+ radial-gradient(500px 260px at 50% 110%,rgba(37,227,164,.25),transparent 70%),var(--bg)}
+.top{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto 34px;gap:10px}
+.top .acts{display:flex;gap:8px;flex-wrap:wrap}
+.logo{font-size:clamp(76px,16vw,150px);font-weight:700;line-height:1;letter-spacing:-.04em;direction:ltr;background:linear-gradient(100deg,#fff 10%,#c9bbff 45%,var(--pink) 80%);-webkit-background-clip:text;background-clip:text;color:transparent;animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.logo-sub{font-size:clamp(15px,2.6vw,22px);color:var(--gold);font-weight:600;letter-spacing:.35em;margin-top:2px;animation:rise .9s .15s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.tag{color:var(--mut);margin:18px auto 26px;max-width:520px}
+.search{display:flex;gap:8px;max-width:680px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px}
+.search input,.search select{background:transparent;border:0;padding:10px 12px;flex:1;min-width:0}
+.search select{flex:0 0 auto;border-inline-start:1px solid var(--line);border-radius:0}
+select option{background:var(--bg2)}
+.btn{border:0;border-radius:12px;padding:10px 20px;font-weight:600;cursor:pointer;background:linear-gradient(120deg,var(--vio),var(--pink));color:#fff;transition:transform .15s;display:inline-block;text-align:center}
+.btn:hover{transform:translateY(-2px)}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--tx)}
+.btn.gold{background:var(--gold);color:#2a1d00}
+.btn.wa{background:#25d366;color:#04230f}
+.btn.red{background:#e5484d}
+.btn.sm{padding:6px 14px;font-size:14px}
+main{max-width:1100px;margin:0 auto;padding:0 16px 60px}
+.cats{display:flex;gap:10px;overflow-x:auto;padding:22px 2px 10px;margin-top:-26px;scrollbar-width:none}
+.cat{flex:0 0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 18px;cursor:pointer;display:flex;align-items:center;gap:8px;white-space:nowrap;transition:.15s}
+.cat.on{background:linear-gradient(120deg,var(--vio),var(--pink));border-color:transparent}
+.cat span{font-size:22px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px}
+.filters input,.filters select{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 12px;width:130px}
+.filters select{width:auto}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.ad{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s;position:relative}
+.ad:hover{transform:translateY(-4px);border-color:var(--vio)}
+.ad .im{aspect-ratio:4/3;background:var(--bg2) center/cover;display:grid;place-items:center;font-size:44px}
+.ad .bd{padding:14px}
+.ad h3{font-size:16px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.badge{position:absolute;top:10px;inset-inline-end:10px;background:var(--pink);color:#fff;border-radius:10px;padding:2px 12px;font-size:13px;font-weight:600}
+.price{color:var(--mint);font-weight:700;font-size:18px;margin:2px 0}
+.meta{color:var(--mut);font-size:13px}
+.empty{text-align:center;color:var(--mut);padding:60px 10px;grid-column:1/-1}
+.ov{position:fixed;inset:0;background:rgba(5,6,20,.8);backdrop-filter:blur(6px);display:grid;place-items:center;padding:14px;z-index:50;overflow:auto}
+.box{background:var(--bg2);border:1px solid var(--line);border-radius:24px;width:100%;max-width:520px;padding:24px;position:relative;max-height:94vh;overflow:auto;animation:rise .35s both}
+.box h2{margin-bottom:14px}
+.x{position:absolute;top:14px;inset-inline-start:14px;background:var(--card);border:0;border-radius:50%;width:34px;height:34px;cursor:pointer}
+label{display:block;font-size:14px;color:var(--mut);margin:12px 0 4px}
+.f{width:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+.tabs{display:flex;gap:6px;background:var(--card);padding:5px;border-radius:14px;margin-bottom:6px}
+.tabs button{flex:1;border:0;background:transparent;padding:9px;border-radius:10px;cursor:pointer;font-weight:600;color:var(--mut)}
+.tabs button.on{background:var(--vio);color:#fff}
+.err{color:#ff7b8f;font-size:14px;min-height:22px;margin-top:8px}
+.gal{display:flex;gap:8px;overflow-x:auto;margin-bottom:14px}
+.gal img{height:220px;border-radius:14px;flex:0 0 auto;max-width:100%}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.rep{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:10px}
+.foot{border-top:1px solid var(--line);padding:30px 16px;text-align:center;color:var(--mut);font-size:14px}
+.foot a{color:var(--gold)}
+.foot nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:10px 0}
+[data-theme=light]{--bg:#f4f5ff;--bg2:#ffffff;--card:#ffffff;--line:#d9dcf3;--tx:#14173a;--mut:#5a6090}
+[data-theme=light] .logo{background:linear-gradient(100deg,#2a2370,#7a5cff 50%,var(--pink));-webkit-background-clip:text;background-clip:text}
+[data-theme=light] .tag{color:#4a5080}
+.fav{position:absolute;top:10px;inset-inline-start:10px;width:36px;height:36px;border-radius:50%;border:0;background:rgba(13,16,48,.65);color:#fff;font-size:18px;cursor:pointer;z-index:2}
+.fav.on,.fav-d.on{background:var(--pink);color:#fff}
+.star{position:absolute;bottom:10px;inset-inline-start:10px;background:var(--gold);color:#2a1d00;border-radius:10px;padding:2px 10px;font-size:12px;font-weight:700;z-index:2}
+.ad.feat{border-color:var(--gold)}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.chip{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:2px 10px;font-size:13px}
+.adslot{grid-column:1/-1;min-height:90px;text-align:center}
+.cc{position:fixed;bottom:12px;inset-inline:12px;max-width:640px;margin-inline:auto;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:14px;z-index:60;display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+.cc a{color:var(--gold)}
+.wafab{position:fixed;bottom:18px;inset-inline-end:18px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:26px;z-index:40;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.langsel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 10px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="top"><div class="acts" id="acts"></div><select id="lang" class="langsel" translate="no" aria-label="Language"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="tr">Türkçe</option><option value="ru">Русский</option><option value="zh">中文</option><option value="ms">Bahasa Melayu</option><option value="uz">Oʻzbekcha</option><option value="ps">پښتو</option><option value="fa">دری</option></select></div>
+  <h1 class="logo brand">Zilx</h1>
+  <div class="logo-sub">خدمات</div>
+  <p class="tag">اعرض اللي عندك أو دوّر على اللي محتاجه: عربيات، موتوسيكلات، شقق، موبايلات، لابتوبات، مواقع وتطبيقات وخدمات.</p>
+  <div class="search">
+    <input id="q" placeholder="ابحث عن أي حاجة…" aria-label="بحث">
+    <input id="city" list="citylist2" placeholder="المدينة / البلد" aria-label="المدينة" style="flex:0 0 140px;border-inline-start:1px solid var(--line)"><datalist id="citylist2"></datalist>
+    <button class="btn" id="go">بحث</button>
+  </div>
+</header>
+
+<main>
+  <div class="cats" id="cats"></div>
+  <div class="filters">
+    <input id="pmin" type="number" inputmode="numeric" placeholder="أقل سعر" aria-label="أقل سعر">
+    <input id="pmax" type="number" inputmode="numeric" placeholder="أعلى سعر" aria-label="أعلى سعر">
+    <select id="sort" aria-label="الترتيب"><option value="new">الأحدث</option><option value="low">الأرخص</option><option value="high">الأغلى</option></select>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div id="more" style="text-align:center;margin:22px 0"></div>
+</main>
+
+<footer class="foot">
+  <div class="brand" style="font-size:20px;color:var(--tx)">Zilx خدمات</div>
+  <nav>
+    <a href="about.html">من نحن</a>
+    <a href="contact.html">اتصل بنا</a>
+    <a href="privacy.html">سياسة الخصوصية</a>
+    <a href="terms.html">شروط الاستخدام</a>
+  </nav>
+  خدمة العملاء:
+  <a id="fcall" href="#">اتصال</a> ·
+  <a id="fwa" href="#" target="_blank" rel="noopener">واتساب</a> ·
+  <a id="fmail" href="#">إيميل</a>
+  <p style="margin-top:10px">© <span id="yr"></span> Zilx. جميع الحقوق محفوظة.</p>
+</footer>
+
+<div id="cc" class="cc hide"><span>نستخدم ملفات الارتباط لتحسين الموقع وعرض الإعلانات. <a href="privacy.html">المزيد</a></span><button class="btn sm" id="cc_ok">موافق</button><button class="btn ghost sm" id="cc_no">رفض</button></div>
+<a class="wafab" id="wafab" target="_blank" rel="noopener" aria-label="واتساب خدمة العملاء">💬</a>
+<div id="modal" class="ov hide"><div class="box" id="box"></div></div>
+
+<script src="i18n_extra.js"></script>
+<script src="i18n.js"></script>
+<script>
+const SUPABASE_URL = 'https://lualdzpsgehrowewsixr.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_9jbY4Z8Cw9nfjrFsPHC58Q_xDbvsG2g';
+const SUPPORT_PHONE = '01063643354';
+const SUPPORT_EMAIL = 'motonimostafa@gmail.com';
+// اختياري: بعد ما تعمل حساب Google Analytics ضع رقم القياس (G-XXXXXXX)
+const GA_ID = '';
+// بعد قبول AdSense: ضع رقم الناشر (ca-pub-xxxxxxxxxxxxxxxx) ورقم وحدة الإعلان
+const ADSENSE_CLIENT = '';
+const ADSENSE_SLOT = '';
+// false = الزائر يشوف الإعلانات والتسجيل مطلوب لعرض رقم المعلن أو إضافة إعلان (أفضل لجوجل وأدسنس)
+// true  = الموقع كله مقفول لحد التسجيل
+const REQUIRE_LOGIN_TO_BROWSE = false;
+
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { lock: async (_n, _t, fn) => await fn() } });
+const CATS = [
+  ['all','الكل','✨'],['car_sale','عربيات للبيع','🚗'],['car_rent','عربيات للإيجار','🔑'],
+  ['bike_sale','موتوسيكلات للبيع','🏍️'],['bike_rent','موتوسيكلات للإيجار','🛵'],
+  ['apt_sale','شقق للبيع','🏢'],['apt_rent','شقق للإيجار','🏠'],['phone','موبايلات','📱'],
+  ['laptop','لابتوبات','💻'],['web','مواقع ويب','🌐'],['app','تطبيقات وأنظمة','📲'],['service','خدمات','🛠️'],['other','أخرى','📦']];
+const CITIES = ['القاهرة','الجيزة','الإسكندرية','المطرية','مدينة نصر','6 أكتوبر','الشيخ زايد','طنطا','المنصورة','أسيوط','الرياض','جدة','دبي','أبوظبي','الكويت','الدوحة','عمّان','لندن','نيويورك','أخرى'];
+const REASONS = ['نصب أو احتيال','إعلان مكرر أو وهمي','محتوى مخالف','تم بيعه بالفعل','سبب آخر'];
+const catName = k => (CATS.find(c => c[0]===k)||[])[1]||'';
+const catIcon = k => (CATS.find(c => c[0]===k)||[])[2]||'📦';
+const $ = id => document.getElementById(id);
+const esc = s => String(s??'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const normPhone = raw => { let p = String(raw||'').trim().replace(/[\s\-().]/g,''); if (p.startsWith('00')) p = '+' + p.slice(2); if (/^01[0125]\d{8}$/.test(p)) return p; if (/^\+\d{8,15}$/.test(p)) return p; return null; };
+const intl = p => { p = String(p); return p.startsWith('+') ? p.slice(1) : '20' + p.replace(/^0/,''); };
+const CUR = { EGP:'ج.م', USD:'$', EUR:'€', SAR:'ر.س', AED:'د.إ', KWD:'د.ك', QAR:'ر.ق', GBP:'£' };
+const money = (n, c='EGP') => n!=null ? Number(n).toLocaleString(curLoc()) + ' ' + (CUR[c]||c) : 'السعر بالتواصل';
+const FG = { car:[['brand','الماركة والموديل','text'],['year','السنة','number'],['km','الكيلومترات','number'],['gear','ناقل الحركة',['أوتوماتيك','مانيوال']],['fuel','الوقود',['بنزين','سولار','غاز','كهرباء','هايبرد']]],
+  bike:[['brand','الماركة والموديل','text'],['year','السنة','number'],['cc','السعة (سي سي)','number']],
+  apt:[['area','المساحة (م²)','number'],['rooms','عدد الغرف','number'],['baths','الحمامات','number'],['floor','الدور','text'],['finish','التشطيب',['سوبر لوكس','لوكس','نصف تشطيب','على الطوب']]],
+  dev:[['brand','الماركة والموديل','text'],['cond','الحالة',['جديد','مستعمل - ممتاز','مستعمل - جيد']]],
+  soft:[['tech','التقنية المستخدمة','text']] };
+const GMAP = { car_sale:'car', car_rent:'car', bike_sale:'bike', bike_rent:'bike', apt_sale:'apt', apt_rent:'apt', phone:'dev', laptop:'dev', web:'soft', app:'soft' };
+const fieldsOf = c => FG[GMAP[c]] || [];
+const LBL = Object.fromEntries(Object.values(FG).flat().map(f => [f[0], f[1]]));
+function renderExtra(c, vals={}){
+  const box = $('n_extra'); if (!box) return;
+  box.innerHTML = fieldsOf(c).map(([k,l,t]) => `<label>${l}</label>` + (Array.isArray(t)
+    ? `<select class="f" id="x_${k}"><option value="">—</option>${t.map(o=>`<option value="${o}" ${vals[k]===o?'selected':''}>${o}</option>`).join('')}</select>`
+    : `<input class="f" id="x_${k}" type="${t}" value="${esc(vals[k]??'')}">`)).join('');
+}
+function collectExtra(c){ const o = {}; fieldsOf(c).forEach(([k]) => { const v = ($('x_'+k)?.value||'').trim(); if (v) o[k] = v; }); return o; }
+const isFeat = a => a.featured_until && new Date(a.featured_until) > new Date();
+const slot = () => adsOn ? `<div class="adslot"><ins class="adsbygoogle" style="display:block" data-ad-client="${ADSENSE_CLIENT}" data-ad-slot="${ADSENSE_SLOT}" data-ad-format="auto" data-full-width-responsive="true"></ins></div>` : '';
+async function shrink(file){
+  try {
+    const bmp = await createImageBitmap(file); const r = Math.min(1, 1280/Math.max(bmp.width,bmp.height));
+    const cv = document.createElement('canvas'); cv.width = Math.round(bmp.width*r); cv.height = Math.round(bmp.height*r);
+    cv.getContext('2d').drawImage(bmp,0,0,cv.width,cv.height);
+    const b = await new Promise(res => cv.toBlob(res,'image/jpeg',.8));
+    return b || file;
+  } catch(e){ return file; }
+}
+let user = null, profile = null, isAdmin = false, cat = 'all', mineOnly = false, cache = [];
+let page = 0, favOnly = false, favs = new Set(), shown = [], opened = false, adsOn = false;
+const PAGE = 24;
+
+$('fcall').href = 'tel:' + SUPPORT_PHONE;
+$('fwa').href = 'https://wa.me/' + intl(SUPPORT_PHONE);
+$('fmail').href = 'mailto:' + SUPPORT_EMAIL;
+$('yr').textContent = new Date().getFullYear();
+CITIES.forEach(c => $('citylist2').insertAdjacentHTML('beforeend', `<option value="${c}">`));
+
+function openModal(html){ $('box').removeAttribute('translate'); $('box').innerHTML = '<button class="x" aria-label="إغلاق" onclick="closeModal()">✕</button>' + html; $('modal').classList.remove('hide'); }
+function closeModal(){ $('modal').classList.add('hide'); }
+$('modal').addEventListener('click', e => { if (e.target.id==='modal') closeModal(); });
+
+/* ---------- الدخول والتسجيل ---------- */
+const fake = p => p.replace('+','p') + '@zilx.app';
+
+function authView(mode='in'){
+  const up = mode==='up';
+  openModal(`
+    <h2 class="brand">${up?'إنشاء حساب':'تسجيل الدخول'}</h2>
+    <p class="meta">التسجيل برقم موبايلك مطلوب عشان تضيف إعلان أو تشوف رقم المعلن.</p>
+    <div class="tabs"><button class="${up?'':'on'}" onclick="authView('in')">دخول</button><button class="${up?'on':''}" onclick="authView('up')">حساب جديد</button></div>
+    ${up?`<label>الاسم</label><input class="f" id="a_name" autocomplete="name">`:''}
+    <label>رقم الموبايل</label><input class="f" id="a_phone" type="tel" inputmode="tel" placeholder="01xxxxxxxxx أو +9715xxxxxxx" autocomplete="tel">
+    <label>كلمة السر</label><input class="f" id="a_pass" type="password" autocomplete="${up?'new-password':'current-password'}">
+    ${up?`<label>الإيميل (اختياري)</label><input class="f" id="a_mail" type="email" autocomplete="email">
+    <p class="meta" style="margin-top:12px">بالتسجيل أنت موافق على <a style="color:var(--gold)" href="terms.html" target="_blank">شروط الاستخدام</a> و<a style="color:var(--gold)" href="privacy.html" target="_blank">سياسة الخصوصية</a>.</p>`:''}
+    <div class="err" id="a_err"></div>
+    <button class="btn" style="width:100%" id="a_go">${up?'إنشاء الحساب':'دخول'}</button>
+    ${up?'':`<p class="meta" style="margin-top:12px">نسيت كلمة السر؟ <a style="color:var(--gold)" target="_blank" rel="noopener" href="https://wa.me/${intl(SUPPORT_PHONE)}?text=${encodeURIComponent('نسيت كلمة السر في Zilx')}">كلّم خدمة العملاء</a></p>`}`);
+  $('a_go').onclick = () => doAuth(up);
+}
+async function doAuth(up){
+  const phone = normPhone($('a_phone').value), pass = $('a_pass').value, err = $('a_err');
+  err.textContent = '';
+  if (!phone) return err.textContent = 'اكتب رقم صحيح: رقم مصري (01xxxxxxxxx) أو دولي بكود الدولة (+971…).';
+  if (pass.length < 6) return err.textContent = 'كلمة السر لازم تكون 6 حروف أو أرقام على الأقل.';
+  $('a_go').disabled = true;
+  let r;
+  if (up){
+    const name = $('a_name').value.trim();
+    if (!name){ $('a_go').disabled = false; return err.textContent = 'اكتب اسمك.'; }
+    r = await sb.auth.signUp({ email: fake(phone), password: pass, options:{ data:{ name, phone, real_email: $('a_mail').value.trim() } } });
+  } else r = await sb.auth.signInWithPassword({ email: fake(phone), password: pass });
+  $('a_go').disabled = false;
+  if (r.error){
+    const m = r.error.message.toLowerCase();
+    err.textContent = m.includes('already') ? 'الرقم ده مسجّل قبل كده. جرّب تدخل.' : m.includes('invalid') ? 'الرقم أو كلمة السر غلط.' : 'حصلت مشكلة: ' + r.error.message;
+    return;
+  }
+  if (!r.data.session) return err.textContent = 'فعّل تسجيل الدخول بدون تأكيد الإيميل من إعدادات Supabase.';
+  closeModal();
+}
+async function logout(){ await sb.auth.signOut(); }
+
+function renderActs(){
+  const th = `<button class="btn ghost sm" onclick="toggleTheme()" aria-label="الوضع">🌓</button>`;
+  $('acts').innerHTML = user
+    ? `<button class="btn gold sm" onclick="adForm()">+ أضف إعلان</button><button class="btn ghost sm" onclick="showFavs()">♥ المفضلة</button><button class="btn ghost sm" onclick="myAds()">إعلاناتي</button>${isAdmin?'<button class="btn ghost sm" onclick="adminPanel()">لوحة الإدارة</button>':''}<button class="btn ghost sm" onclick="logout()">خروج</button>${th}`
+    : `<button class="btn gold sm" onclick="adForm()">+ أضف إعلان</button><button class="btn sm" onclick="authView('in')">دخول / حساب جديد</button>${th}`;
+}
+async function onSession(session){
+  user = session?.user || null; profile = null; isAdmin = false;
+  if (!user){ favs = new Set(); favOnly = false; }
+  renderActs();
+  if (!user && REQUIRE_LOGIN_TO_BROWSE){
+    $('grid').innerHTML = `<div class="empty"><div style="font-size:48px">🔒</div><p>سجّل دخولك برقم موبايلك عشان تشوف الإعلانات.</p><br><button class="btn" onclick="authView('up')">ابدأ دلوقتي</button></div>`;
+    return authView('in');
+  }
+  mineOnly = false; load().then(openParam);
+  if (user){
+    try {
+      const [p, a] = await Promise.race([
+        Promise.all([
+          sb.from('profiles').select('*').eq('id', user.id).maybeSingle(),
+          sb.from('admins').select('user_id').eq('user_id', user.id).maybeSingle()]),
+        new Promise(r => setTimeout(() => r([{}, {}]), 8000))]);
+      profile = p.data || null; isAdmin = !!a.data; renderActs();
+      const fv = await sb.from('favorites').select('ad_id'); favs = new Set((fv.data||[]).map(x => x.ad_id)); paintFavs();
+    } catch(e) {}
+  }
+}
+
+/* ---------- الإعلانات ---------- */
+function renderCats(){
+  $('cats').innerHTML = CATS.map(c => `<button class="cat ${c[0]===cat?'on':''}" data-k="${c[0]}"><span>${c[2]}</span>${c[1]}</button>`).join('');
+  $('cats').querySelectorAll('.cat').forEach(b => b.onclick = () => { cat = b.dataset.k; mineOnly = false; favOnly = false; renderCats(); load(); });
+}
+function filt(q){
+  if (mineOnly && user) q = q.eq('user_id', user.id); else q = q.neq('status','hidden');
+  if (favOnly) q = q.in('id', [...favs]);
+  if (cat!=='all') q = q.eq('category', cat);
+  const city = $('city').value.trim(); if (city) q = q.eq('city', city);
+  if ($('pmin').value) q = q.gte('price', Number($('pmin').value));
+  if ($('pmax').value) q = q.lte('price', Number($('pmax').value));
+  const t = $('q').value.trim().replace(/[%,()]/g,' ');
+  if (t) q = q.or(`title.ilike.%${t}%,description.ilike.%${t}%`);
+  return q;
+}
+async function load(append=false){
+  if (!append){ page = 0; shown = []; $('grid').innerHTML = '<div class="empty">جاري التحميل…</div>'; $('more').innerHTML = ''; }
+  if (favOnly && !favs.size){ $('grid').innerHTML = '<div class="empty"><div style="font-size:44px">♥</div><p>لسه ما ضفتش حاجة للمفضلة.</p></div>'; return; }
+  const sel = '*, profiles(name,phone)', sv = $('sort').value;
+  let q = filt(sb.from('ads').select(sel));
+  q = sv==='low' ? q.order('price',{ascending:true,nullsFirst:false}) : sv==='high' ? q.order('price',{ascending:false,nullsFirst:false}) : q.order('created_at',{ascending:false});
+  q = q.range(page*PAGE, page*PAGE+PAGE-1);
+  const wantFeat = !append && sv==='new' && !mineOnly && !favOnly;
+  const [res, fres] = await Promise.all([
+    Promise.race([q, new Promise(r => setTimeout(() => r({ data:null, error:{ message:'الاتصال بطيء أو فيه مشكلة في الإعداد. اعمل Refresh، ولو فضلت افتح F12 وابعت الخطأ.' } }), 12000))]),
+    wantFeat ? filt(sb.from('ads').select(sel)).gt('featured_until', new Date().toISOString()).order('featured_until',{ascending:false}).limit(6) : Promise.resolve(null)]);
+  if (res.error) return $('grid').innerHTML = `<div class="empty">تعذّر التحميل: ${esc(res.error.message)}</div>`;
+  const seen = new Set(shown.map(x => x.id));
+  const fresh = [...(fres?.data||[]), ...res.data].filter(x => !seen.has(x.id) && (seen.add(x.id), true));
+  const base = shown.length; shown = shown.concat(fresh); cache = shown;
+  if (!append) $('grid').innerHTML = '';
+  if (!shown.length) $('grid').innerHTML = `<div class="empty"><div style="font-size:44px">🔎</div><p>مفيش إعلانات هنا لسه. كن أول واحد يضيف إعلان!</p></div>`;
+  $('grid').insertAdjacentHTML('beforeend', fresh.map((a,i) => card(a) + ((base+i+1) % 8 === 0 ? slot() : '')).join(''));
+  $('more').innerHTML = res.data.length === PAGE ? '<button class="btn ghost" id="moreb">عرض المزيد</button>' : '';
+  if ($('moreb')) $('moreb').onclick = () => { page++; load(true); };
+  if (adsOn) document.querySelectorAll('.adsbygoogle:not([data-done])').forEach(el => { el.dataset.done = 1; try { (window.adsbygoogle = window.adsbygoogle||[]).push({}); } catch(e){} });
+  paintFavs();
+}
+const card = a => `<article class="ad ${isFeat(a)?'feat':''}" data-id="${a.id}">
+  ${a.status==='sold'?'<span class="badge">تم</span>':a.status==='hidden'?'<span class="badge">مخفي</span>':''}
+  <button class="fav" data-fav="${a.id}" aria-label="مفضلة">♥</button>${isFeat(a)?'<span class="star">⭐ مميز</span>':''}
+  <div class="im" style="${a.images?.[0]?`background-image:url('${esc(a.images[0])}')`:''}">${a.images?.[0]?'':catIcon(a.category)}</div>
+  <div class="bd"><h3><bdi translate="no">${esc(a.title)}</bdi></h3><div class="price">${money(a.price,a.currency)}</div>
+  <div class="meta">${catName(a.category)} · ${esc(a.city||'')}</div></div></article>`;
+
+function detail(id){
+  const a = cache.find(x => x.id===id); if (!a) return;
+  try { const k = 'v'+id; if (!sessionStorage.getItem(k)){ sessionStorage.setItem(k,'1'); sb.rpc('inc_view',{ ad:id }).then(()=>{}); a.views = (a.views||0)+1; } } catch(e){}
+  const ph = a.profiles?.phone || '';
+  const own = user && a.user_id===user.id;
+  const contact = user && ph
+    ? `<a class="btn" href="tel:${esc(ph)}">اتصل ${esc(ph)}</a><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intl(ph)}?text=${encodeURIComponent(trText('أهلاً، بخصوص إعلانك على Zilx:')+' '+a.title)}">واتساب</a>`
+    : `<button class="btn" onclick="authView('up')">سجّل دخولك لعرض رقم المعلن</button>`;
+  const chips = Object.entries(a.extra||{}).filter(([k]) => LBL[k]).map(([k,v]) => `<span class="chip">${LBL[k]}: ${esc(v)}</span>`).join('');
+  openModal(`
+    ${a.images?.length?`<div class="gal">${a.images.map(u=>`<img src="${esc(u)}" alt="${esc(a.title)}" loading="lazy">`).join('')}</div>`:''}
+    <h2>${isFeat(a)?'⭐ ':''}<bdi translate="no">${esc(a.title)}</bdi> ${a.status==='sold'?'<span class="badge" style="position:static">تم</span>':''}</h2>
+    <div class="price">${money(a.price,a.currency)}</div>
+    <div class="meta">${catName(a.category)} · ${esc(a.city||'')} · ${new Date(a.created_at).toLocaleDateString(curLoc())} · 👁 ${a.views||0}</div>
+    ${chips?`<div class="chips">${chips}</div>`:''}
+    <p translate="no" style="margin-top:14px;white-space:pre-wrap">${esc(a.description||'')}</p>
+    <p class="meta" style="margin-top:12px">المعلن: <bdi translate="no">${esc(a.profiles?.name||'—')}</bdi></p>
+    <div class="row">${contact}</div>
+    <div class="row">
+      <button class="btn ghost sm fav-d" data-fav="${a.id}" onclick="toggleFav('${a.id}')">♥ مفضلة</button>
+      <button class="btn ghost sm" onclick="shareAd('${a.id}')">مشاركة</button>
+      ${own?`<button class="btn ghost sm" onclick="adForm('${a.id}')">تعديل</button><button class="btn ghost sm" onclick="toggleSold('${a.id}')">${a.status==='sold'?'إعادة الإعلان':'تم البيع / التأجير'}</button>`:''}
+      ${own||isAdmin?`<button class="btn red sm" onclick="delAd('${a.id}')">حذف</button>`:''}
+      ${isAdmin?`<button class="btn gold sm" onclick="admFeature('${a.id}',${!!isFeat(a)})">${isFeat(a)?'إلغاء التمييز':'تمييز 7 أيام'}</button>`:''}
+      ${!own?`<button class="btn ghost sm" onclick="reportView('${a.id}')">إبلاغ عن الإعلان</button>`:''}
+    </div>`);
+  paintFavs();
+}
+async function delAd(id){ if (!confirm('تحذف الإعلان؟')) return; await sb.from('ads').delete().eq('id', id); closeModal(); load(); }
+async function toggleSold(id){
+  const a = cache.find(x => x.id===id);
+  await sb.from('ads').update({ status: a.status==='sold'?'active':'sold' }).eq('id', id); closeModal(); load();
+}
+function myAds(){ mineOnly = true; favOnly = false; cat='all'; renderCats(); load(); window.scrollTo({top:300,behavior:'smooth'}); }
+
+function adForm(id){
+  if (!user) return authView('up');
+  const a = id ? cache.find(x => x.id===id) : null;
+  openModal(`
+    <h2 class="brand">${a?'تعديل الإعلان':'إعلان جديد'}</h2>
+    <label>القسم</label><select class="f" id="n_cat" onchange="renderExtra(this.value)">${CATS.slice(1).map(c=>`<option value="${c[0]}" ${a?.category===c[0]?'selected':''}>${c[2]} ${c[1]}</option>`).join('')}</select>
+    <label>عنوان الإعلان</label><input class="f" id="n_title" maxlength="80" value="${esc(a?.title||'')}">
+    <label>السعر (اختياري)</label><div style="display:flex;gap:8px"><input class="f" id="n_price" type="number" inputmode="numeric" min="0" value="${a?.price??''}"><select class="f" id="n_cur" style="width:110px">${Object.keys(CUR).map(k=>`<option ${(a?.currency||'EGP')===k?'selected':''}>${k}</option>`).join('')}</select></div><div id="n_extra"></div>
+    <label>المدينة / البلد</label><input class="f" id="n_city" list="citylist" value="${esc(a?.city||'')}"><datalist id="citylist">${CITIES.map(c=>`<option value="${c}">`).join('')}</datalist>
+    <label>التفاصيل</label><textarea class="f" id="n_desc" rows="4">${esc(a?.description||'')}</textarea>
+    <label>صور (حتى 4)${a?' — لو اخترت صور جديدة هتستبدل القديمة':''}</label><input class="f" id="n_img" type="file" accept="image/*" multiple>
+    <div class="err" id="n_err"></div>
+    <button class="btn" style="width:100%" id="n_go">${a?'حفظ التعديل':'نشر الإعلان'}</button>`);
+  $('n_go').onclick = () => publish(a);
+  renderExtra(a?.category || 'car_sale', a?.extra || {});
+}
+async function publish(old){
+  const err = $('n_err'), title = $('n_title').value.trim();
+  if (title.length < 3) return err.textContent = 'اكتب عنوان واضح للإعلان.';
+  $('n_go').disabled = true; err.textContent = 'جاري الحفظ…';
+  let urls = old?.images || [];
+  const files = [...$('n_img').files].slice(0,4);
+  if (files.length){
+    urls = [];
+    for (const f of files){
+      const path = `${user.id}/${Date.now()}-${Math.random().toString(36).slice(2,8)}.jpg`;
+      const bl = await shrink(f); const up = await sb.storage.from('ads').upload(path, bl, { contentType: bl.type || 'image/jpeg' });
+      if (!up.error) urls.push(sb.storage.from('ads').getPublicUrl(path).data.publicUrl);
+    }
+  }
+  const row = { title, category: $('n_cat').value, city: $('n_city').value.trim(), currency: $('n_cur').value, extra: collectExtra($('n_cat').value),
+    price: $('n_price').value ? Number($('n_price').value) : null,
+    description: $('n_desc').value.trim(), images: urls };
+  const { error } = old ? await sb.from('ads').update(row).eq('id', old.id) : await sb.from('ads').insert(row);
+  if (error){
+    $('n_go').disabled = false;
+    return err.textContent = error.message.includes('row-level security') ? 'حسابك موقوف ومش تقدر تضيف إعلانات. كلّم خدمة العملاء.' : error.message;
+  }
+  closeModal(); cat='all'; mineOnly = false; renderCats(); load();
+}
+
+/* ---------- الإبلاغ ---------- */
+function reportView(id){
+  if (!user) return authView('in');
+  openModal(`<h2 class="brand">إبلاغ عن إعلان</h2>
+    <label>السبب</label><select class="f" id="r_reason">${REASONS.map(r=>`<option value="${r}">${r}</option>`).join('')}</select>
+    <label>تفاصيل (اختياري)</label><textarea class="f" id="r_det" rows="3"></textarea>
+    <div class="err" id="r_err"></div>
+    <button class="btn" style="width:100%" id="r_go">إرسال البلاغ</button>`);
+  $('r_go').onclick = async () => {
+    $('r_go').disabled = true;
+    const { error } = await sb.from('reports').insert({ ad_id: id, reason: $('r_reason').value, details: $('r_det').value.trim() });
+    if (error){ $('r_go').disabled = false; return $('r_err').textContent = error.message; }
+    openModal('<h2 class="brand">شكرًا ليك</h2><p>وصلنا البلاغ وهنراجع الإعلان.</p>');
+  };
+}
+
+/* ---------- لوحة الإدارة ---------- */
+async function adminPanel(){
+  openModal('<h2 class="brand">لوحة الإدارة</h2><div class="rep" id="st">جاري تحميل الإحصائيات…</div><h3 style="margin:14px 0 8px">مستخدم</h3><div class="row" style="margin-top:0"><input class="f" id="ad_ph" placeholder="رقم الموبايل" style="flex:1"><button class="btn sm" onclick="admFindUser()">بحث</button></div><div id="ad_u"></div><h3 style="margin:14px 0 8px">كلمة ممنوعة</h3><div class="row" style="margin-top:0"><input class="f" id="ad_w" placeholder="كلمة أو جملة" style="flex:1"><button class="btn sm" onclick="admAddWord()">إضافة</button></div><div id="ad_wm" class="meta"></div><h3 style="margin:14px 0 8px">البلاغات</h3><div id="rp">جاري التحميل…</div><h3 style="margin:14px 0 8px">آخر الإعلانات</h3><div id="la">جاري التحميل…</div>');
+  $('box').setAttribute('translate','no');
+  sb.from('ads').select('id,title,created_at,profiles(name,phone)').order('created_at',{ascending:false}).limit(20).then(({data}) => {
+    $('la').innerHTML = (data||[]).map(a => `<div class="rep"><b>${esc(a.title)}</b><div class="meta">${esc(a.profiles?.name||'')} · ${esc(a.profiles?.phone||'')} · ${new Date(a.created_at).toLocaleString(curLoc())}</div><div class="row"><button class="btn red sm" onclick="admDel('${a.id}')">حذف</button></div></div>`).join('') || '<p class="meta">مفيش إعلانات.</p>'; });
+  sb.rpc('admin_stats').then(({data, error}) => { $('st').innerHTML = error ? esc(error.message) :
+    `<div>👀 زيارات اليوم: <b>${data.visits_today}</b> · الأسبوع: <b>${data.visits_week}</b></div>
+     <div>👤 المستخدمين: <b>${data.users}</b> (جديد اليوم: <b>${data.users_today}</b>)</div>
+     <div>📢 الإعلانات: <b>${data.ads}</b> (اليوم: <b>${data.ads_today}</b>)</div>
+     <div>🚩 بلاغات مفتوحة: <b>${data.reports_open}</b></div>`; });
+  const { data, error } = await sb.from('reports').select('*, ads(id,title,user_id)').eq('resolved', false).order('created_at',{ascending:false});
+  if (error) return $('rp').textContent = error.message;
+  window._reps = data;
+  $('rp').innerHTML = data.length ? data.map(r => `<div class="rep">
+    <b>${esc(r.ads?.title||'(إعلان محذوف)')}</b>
+    <div class="meta">${esc(r.reason)} — ${esc(r.details||'')}</div>
+    <div class="row">
+      ${r.ads?`<button class="btn red sm" onclick="admAct('${r.id}','del')">حذف الإعلان</button><button class="btn red sm" onclick="admAct('${r.id}','ban')">حذف وحظر المعلن</button>`:''}
+      <button class="btn ghost sm" onclick="admAct('${r.id}','ok')">تجاهل</button>
+    </div></div>`).join('') : '<p class="meta">مفيش بلاغات جديدة.</p>';
+}
+async function admAct(rid, act){
+  const r = window._reps.find(x => x.id===rid);
+  if (act!=='ok' && r.ads){
+    if (act==='ban') await sb.from('profiles').update({ banned:true }).eq('id', r.ads.user_id);
+    await sb.from('ads').delete().eq('id', r.ads.id);
+  }
+  if (act==='ok' && r.ads) await sb.from('ads').update({ status:'active' }).eq('id', r.ads.id).eq('status','hidden');
+  await sb.from('reports').update({ resolved:true }).eq('id', rid);
+  adminPanel(); load();
+}
+
+async function admDel(id){ if (!confirm('تحذف الإعلان؟')) return; await sb.from('ads').delete().eq('id', id); adminPanel(); load(); }
+function paintFavs(){ document.querySelectorAll('[data-fav]').forEach(b => b.classList.toggle('on', favs.has(b.dataset.fav))); }
+async function toggleFav(id){
+  if (!user) return authView('up');
+  if (favs.has(id)){ favs.delete(id); await sb.from('favorites').delete().eq('ad_id', id); }
+  else { favs.add(id); await sb.from('favorites').insert({ ad_id:id }); }
+  paintFavs();
+}
+function showFavs(){ favOnly = true; mineOnly = false; load(); window.scrollTo({top:300,behavior:'smooth'}); }
+async function shareAd(id){
+  const a = cache.find(x => x.id===id), url = location.origin + location.pathname + '?ad=' + id;
+  try { if (navigator.share) return await navigator.share({ title: a?.title, text: a?.title, url }); await navigator.clipboard.writeText(url); alert('تم نسخ رابط الإعلان'); }
+  catch(e){ prompt('انسخ الرابط:', url); }
+}
+async function openParam(){
+  const id = new URLSearchParams(location.search).get('ad'); if (!id || opened) return; opened = true;
+  let a = cache.find(x => x.id===id);
+  if (!a){ const { data } = await sb.from('ads').select('*, profiles(name,phone)').eq('id', id).maybeSingle(); if (data){ cache.push(data); a = data; } }
+  if (a) detail(id);
+}
+async function admFeature(id, on){
+  await sb.from('ads').update({ featured_until: on ? null : new Date(Date.now()+7*864e5).toISOString() }).eq('id', id);
+  closeModal(); load();
+}
+async function admFindUser(){
+  const raw = $('ad_ph').value.trim(), ph = normPhone(raw) || raw;
+  const { data } = await sb.from('profiles').select('*').eq('phone', ph).maybeSingle();
+  $('ad_u').innerHTML = data ? `<div class="rep"><b>${esc(data.name)}</b> · ${esc(data.phone)} ${data.banned?'🚫 محظور':''}<div class="row"><button class="btn ${data.banned?'':'red'} sm" onclick="admBan('${data.id}',${!data.banned})">${data.banned?'فك الحظر':'حظر'}</button></div></div>` : '<p class="meta">مفيش مستخدم بالرقم ده.</p>';
+}
+async function admBan(id, f){ await sb.from('profiles').update({ banned:f }).eq('id', id); admFindUser(); }
+async function admAddWord(){
+  const w = $('ad_w').value.trim(); if (!w) return;
+  const { error } = await sb.from('banned_words').insert({ word:w });
+  $('ad_wm').textContent = error ? error.message : 'تمت الإضافة'; $('ad_w').value = '';
+}
+function toggleTheme(){ const n = document.documentElement.dataset.theme==='light' ? 'dark' : 'light'; document.documentElement.dataset.theme = n; try { localStorage.setItem('zt', n); } catch(e){} }
+function enableTrackers(){
+  if (GA_ID){ const g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID; document.head.appendChild(g);
+    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', GA_ID); }
+  if (ADSENSE_CLIENT){ const a = document.createElement('script'); a.async = true; a.crossOrigin = 'anonymous'; a.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + ADSENSE_CLIENT; document.head.appendChild(a); adsOn = !!ADSENSE_SLOT; }
+}
+function consentInit(){
+  let c = null; try { c = localStorage.getItem('zc'); } catch(e){}
+  if (c==='1') enableTrackers(); else if (c===null) $('cc').classList.remove('hide');
+  $('cc_ok').onclick = () => { try { localStorage.setItem('zc','1'); } catch(e){} $('cc').classList.add('hide'); enableTrackers(); load(); };
+  $('cc_no').onclick = () => { try { localStorage.setItem('zc','0'); } catch(e){} $('cc').classList.add('hide'); };
+}
+$('grid').addEventListener('click', e => {
+  const f = e.target.closest('[data-fav]'); if (f){ e.stopPropagation(); return toggleFav(f.dataset.fav); }
+  const c = e.target.closest('.ad'); if (c) detail(c.dataset.id);
+});
+$('wafab').href = 'https://wa.me/' + intl(SUPPORT_PHONE);
+consentInit();
+if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
+$('go').onclick = () => load();
+$('q').addEventListener('keydown', e => { if (e.key==='Enter') load(); });
+['city','sort','pmin','pmax'].forEach(i => $(i).onchange = () => load());
+renderCats();
+let lastUid = undefined;
+sb.auth.onAuthStateChange((ev, s) => {
+  if (ev!=='SIGNED_IN' && ev!=='SIGNED_OUT') return;
+  const uid = s?.user?.id || null;
+  if (uid === lastUid) return;
+  lastUid = uid;
+  setTimeout(() => onSession(s), 0);
+});
+sb.auth.getSession().then(({data}) => { lastUid = data.session?.user?.id || null; onSession(data.session); });
+try { if (!sessionStorage.getItem('zv')) { sessionStorage.setItem('zv','1'); setTimeout(() => sb.from('visits').insert({ path: location.pathname }), 2000); } } catch(e) {}
+</script>
+</body>
+</html>
