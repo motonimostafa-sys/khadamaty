@@ -308,7 +308,7 @@ function filt(q){
 async function load(append=false){
   if (!append){ page = 0; shown = []; $('grid').innerHTML = '<div class="empty">جاري التحميل…</div>'; $('more').innerHTML = ''; }
   if (favOnly && !favs.size){ $('grid').innerHTML = '<div class="empty"><div style="font-size:44px">♥</div><p>لسه ما ضفتش حاجة للمفضلة.</p></div>'; return; }
-  const sel = '*, profiles!user_id(name,phone)', sv = $('sort').value;
+  const sel = '*', sv = $('sort').value;
   let q = filt(sb.from('ads').select(sel));
   q = sv==='low' ? q.order('price',{ascending:true,nullsFirst:false}) : sv==='high' ? q.order('price',{ascending:false,nullsFirst:false}) : q.order('created_at',{ascending:false});
   q = q.range(page*PAGE, page*PAGE+PAGE-1);
@@ -338,11 +338,7 @@ const card = a => `<article class="ad ${isFeat(a)?'feat':''}" data-id="${a.id}">
 function detail(id){
   const a = cache.find(x => x.id===id); if (!a) return;
   try { const k = 'v'+id; if (!sessionStorage.getItem(k)){ sessionStorage.setItem(k,'1'); sb.rpc('inc_view',{ ad:id }).then(()=>{}); a.views = (a.views||0)+1; } } catch(e){}
-  const ph = a.profiles?.phone || '';
   const own = user && a.user_id===user.id;
-  const contact = user && ph
-    ? `<a class="btn" href="tel:${esc(ph)}">اتصل ${esc(ph)}</a><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intl(ph)}?text=${encodeURIComponent(trText('أهلاً، بخصوص إعلانك على Zilx:')+' '+a.title)}">واتساب</a>`
-    : `<button class="btn" onclick="authView('up')">سجّل دخولك لعرض رقم المعلن</button>`;
   const chips = Object.entries(a.extra||{}).filter(([k]) => LBL[k]).map(([k,v]) => `<span class="chip">${LBL[k]}: ${esc(v)}</span>`).join('');
   openModal(`
     ${a.images?.length?`<div class="gal">${a.images.map(u=>`<img src="${esc(u)}" alt="${esc(a.title)}" loading="lazy">`).join('')}</div>`:''}
@@ -351,8 +347,7 @@ function detail(id){
     <div class="meta">${catName(a.category)} · ${esc(a.city||'')} · ${new Date(a.created_at).toLocaleDateString(curLoc())} · 👁 ${a.views||0}</div>
     ${chips?`<div class="chips">${chips}</div>`:''}
     <p translate="no" style="margin-top:14px;white-space:pre-wrap">${esc(a.description||'')}</p>
-    <p class="meta" style="margin-top:12px">المعلن: <bdi translate="no">${esc(a.profiles?.name||'—')}</bdi></p>
-    <div class="row">${contact}</div>
+    <div id="sl" style="margin-top:12px">${user?'<p class="meta">جاري التحميل…</p>':''}</div>
     <div class="row">
       <button class="btn ghost sm fav-d" data-fav="${a.id}" onclick="toggleFav('${a.id}')">♥ مفضلة</button>
       <button class="btn ghost sm" onclick="shareAd('${a.id}')">مشاركة</button>
@@ -361,7 +356,23 @@ function detail(id){
       ${isAdmin?`<button class="btn gold sm" onclick="admFeature('${a.id}',${!!isFeat(a)})">${isFeat(a)?'إلغاء التمييز':'تمييز 7 أيام'}</button>`:''}
       ${!own?`<button class="btn ghost sm" onclick="reportView('${a.id}')">إبلاغ عن الإعلان</button>`:''}
     </div>`);
-  paintFavs();
+  paintFavs(); loadSeller(a);
+}
+async function loadSeller(a){
+  const box = $('sl'); if (!box) return;
+  if (!user){ box.innerHTML = `<div class="row"><button class="btn" onclick="authView('up')">سجّل دخولك لعرض رقم المعلن</button></div>`; return; }
+  let sd = (a.user_id===user.id && profile) ? { name: profile.name, phone: profile.phone } : null;
+  if (!sd){
+    const { data, error } = await sb.rpc('get_seller', { p_ad: a.id });
+    if ($('sl') !== box) return;
+    if (error || !data){
+      box.innerHTML = `<p class="meta">${String(error?.message||'').includes('rate_limited') ? 'وصلت للحد الأقصى لعرض الأرقام. جرّب بعد ساعة.' : 'تعذّر التحميل: ' + esc(error?.message||'')}</p>`;
+      return;
+    }
+    sd = data;
+  }
+  const ph = sd.phone || '';
+  box.innerHTML = `<p class="meta">المعلن: <bdi translate="no">${esc(sd.name||'—')}</bdi></p><div class="row"><a class="btn" href="tel:${esc(ph)}">اتصل ${esc(ph)}</a><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intl(ph)}?text=${encodeURIComponent(trText('أهلاً، بخصوص إعلانك على Zilx:')+' '+a.title)}">واتساب</a></div>`;
 }
 async function delAd(id){ if (!confirm('تحذف الإعلان؟')) return; await sb.from('ads').delete().eq('id', id); closeModal(); load(); }
 async function toggleSold(id){
@@ -477,7 +488,7 @@ async function shareAd(id){
 async function openParam(){
   const id = new URLSearchParams(location.search).get('ad'); if (!id || opened) return; opened = true;
   let a = cache.find(x => x.id===id);
-  if (!a){ const { data } = await sb.from('ads').select('*, profiles!user_id(name,phone)').eq('id', id).maybeSingle(); if (data){ cache.push(data); a = data; } }
+  if (!a){ const { data } = await sb.from('ads').select('*').eq('id', id).maybeSingle(); if (data){ cache.push(data); a = data; } }
   if (a) detail(id);
 }
 async function admFeature(id, on){
