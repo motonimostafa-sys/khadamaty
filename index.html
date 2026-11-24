@@ -308,7 +308,7 @@ function filt(q){
 async function load(append=false){
   if (!append){ page = 0; shown = []; $('grid').innerHTML = '<div class="empty">جاري التحميل…</div>'; $('more').innerHTML = ''; }
   if (favOnly && !favs.size){ $('grid').innerHTML = '<div class="empty"><div style="font-size:44px">♥</div><p>لسه ما ضفتش حاجة للمفضلة.</p></div>'; return; }
-  const sel = '*, profiles(name,phone)', sv = $('sort').value;
+  const sel = '*, profiles!user_id(name,phone)', sv = $('sort').value;
   let q = filt(sb.from('ads').select(sel));
   q = sv==='low' ? q.order('price',{ascending:true,nullsFirst:false}) : sv==='high' ? q.order('price',{ascending:false,nullsFirst:false}) : q.order('created_at',{ascending:false});
   q = q.range(page*PAGE, page*PAGE+PAGE-1);
@@ -431,7 +431,7 @@ function reportView(id){
 async function adminPanel(){
   openModal('<h2 class="brand">لوحة الإدارة</h2><div class="rep" id="st">جاري تحميل الإحصائيات…</div><h3 style="margin:14px 0 8px">مستخدم</h3><div class="row" style="margin-top:0"><input class="f" id="ad_ph" placeholder="رقم الموبايل" style="flex:1"><button class="btn sm" onclick="admFindUser()">بحث</button></div><div id="ad_u"></div><h3 style="margin:14px 0 8px">كلمة ممنوعة</h3><div class="row" style="margin-top:0"><input class="f" id="ad_w" placeholder="كلمة أو جملة" style="flex:1"><button class="btn sm" onclick="admAddWord()">إضافة</button></div><div id="ad_wm" class="meta"></div><h3 style="margin:14px 0 8px">البلاغات</h3><div id="rp">جاري التحميل…</div><h3 style="margin:14px 0 8px">آخر الإعلانات</h3><div id="la">جاري التحميل…</div>');
   $('box').setAttribute('translate','no');
-  sb.from('ads').select('id,title,created_at,profiles(name,phone)').order('created_at',{ascending:false}).limit(20).then(({data}) => {
+  sb.from('ads').select('id,title,created_at,profiles!user_id(name,phone)').order('created_at',{ascending:false}).limit(20).then(({data}) => {
     $('la').innerHTML = (data||[]).map(a => `<div class="rep"><b>${esc(a.title)}</b><div class="meta">${esc(a.profiles?.name||'')} · ${esc(a.profiles?.phone||'')} · ${new Date(a.created_at).toLocaleString(curLoc())}</div><div class="row"><button class="btn red sm" onclick="admDel('${a.id}')">حذف</button></div></div>`).join('') || '<p class="meta">مفيش إعلانات.</p>'; });
   sb.rpc('admin_stats').then(({data, error}) => { $('st').innerHTML = error ? esc(error.message) :
     `<div>👀 زيارات اليوم: <b>${data.visits_today}</b> · الأسبوع: <b>${data.visits_week}</b></div>
@@ -477,7 +477,7 @@ async function shareAd(id){
 async function openParam(){
   const id = new URLSearchParams(location.search).get('ad'); if (!id || opened) return; opened = true;
   let a = cache.find(x => x.id===id);
-  if (!a){ const { data } = await sb.from('ads').select('*, profiles(name,phone)').eq('id', id).maybeSingle(); if (data){ cache.push(data); a = data; } }
+  if (!a){ const { data } = await sb.from('ads').select('*, profiles!user_id(name,phone)').eq('id', id).maybeSingle(); if (data){ cache.push(data); a = data; } }
   if (a) detail(id);
 }
 async function admFeature(id, on){
