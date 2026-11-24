@@ -186,7 +186,8 @@ const ROWS = [
 ["شكرًا ليك","Thank you","Merci","Gracias","Danke","Teşekkürler","Спасибо"],
 ["وصلنا البلاغ وهنراجع الإعلان.","We received your report and will review the ad.","Nous avons reçu votre signalement et allons examiner l'annonce.","Recibimos tu denuncia y revisaremos el anuncio.","Wir haben deine Meldung erhalten und prüfen die Anzeige.","Bildiriminizi aldık, ilanı inceleyeceğiz.","Мы получили вашу жалобу и проверим объявление."],
 ["تم نسخ رابط الإعلان","Ad link copied","Lien copié","Enlace copiado","Link kopiert","Bağlantı kopyalandı","Ссылка скопирована"],
-["انسخ الرابط:","Copy the link:","Copiez le lien :","Copia el enlace:","Link kopieren:","Bağlantıyı kopyalayın:","Скопируйте ссылку:"]
+["انسخ الرابط:","Copy the link:","Copiez le lien :","Copia el enlace:","Link kopieren:","Bağlantıyı kopyalayın:","Скопируйте ссылку:"],
+  ["وصلت للحد الأقصى لعرض الأرقام. جرّب بعد ساعة.", "You've reached the limit for viewing numbers. Try again in an hour.", "Vous avez atteint la limite d'affichage des numéros. Réessayez dans une heure.", "Has alcanzado el límite de números visibles. Inténtalo de nuevo en una hora.", "Du hast das Limit für die Anzeige von Nummern erreicht. Versuche es in einer Stunde erneut.", "Numara görüntüleme sınırına ulaştınız. Bir saat sonra tekrar deneyin.", "Вы достигли лимита просмотра номеров. Попробуйте через час."]
 ];
 
 const maps = {};
