@@ -101,6 +101,11 @@ label{display:block;font-size:14px;color:var(--mut);margin:12px 0 4px}
 .cc a{color:var(--gold)}
 .wafab{position:fixed;bottom:18px;inset-inline-end:18px;width:54px;height:54px;border-radius:50%;background:#25d366;display:grid;place-items:center;font-size:26px;z-index:40;box-shadow:0 6px 20px rgba(0,0,0,.35)}
 .langsel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:6px 10px;cursor:pointer}
+.sim{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.sim .ad .bd{padding:8px}
+.sim .ad h3{font-size:14px}
+.sim .price{font-size:15px}
+.sim .star{display:none}
 </style>
 </head>
 <body>
@@ -295,7 +300,7 @@ function renderCats(){
   $('cats').querySelectorAll('.cat').forEach(b => b.onclick = () => { cat = b.dataset.k; mineOnly = false; favOnly = false; renderCats(); load(); });
 }
 function filt(q){
-  if (mineOnly && user) q = q.eq('user_id', user.id); else q = q.neq('status','hidden');
+  if (mineOnly && user) q = q.eq('user_id', user.id); else q = q.neq('status','hidden').gt('expires_at', new Date().toISOString());
   if (favOnly) q = q.in('id', [...favs]);
   if (cat!=='all') q = q.eq('category', cat);
   const city = $('city').value.trim(); if (city) q = q.eq('city', city);
@@ -329,7 +334,7 @@ async function load(append=false){
   paintFavs();
 }
 const card = a => `<article class="ad ${isFeat(a)?'feat':''}" data-id="${a.id}">
-  ${a.status==='sold'?'<span class="badge">تم</span>':a.status==='hidden'?'<span class="badge">مخفي</span>':''}
+  ${a.status==='sold'?'<span class="badge">تم</span>':a.status==='hidden'?'<span class="badge">مخفي</span>':(a.expires_at && new Date(a.expires_at) < new Date())?'<span class="badge">منتهي</span>':''}
   <button class="fav" data-fav="${a.id}" aria-label="مفضلة">♥</button>${isFeat(a)?'<span class="star">⭐ مميز</span>':''}
   <div class="im" style="${a.images?.[0]?`background-image:url('${esc(a.images[0])}')`:''}">${a.images?.[0]?'':catIcon(a.category)}</div>
   <div class="bd"><h3><bdi translate="no">${esc(a.title)}</bdi></h3><div class="price">${money(a.price,a.currency)}</div>
@@ -347,16 +352,18 @@ function detail(id){
     <div class="meta">${catName(a.category)} · ${esc(a.city||'')} · ${new Date(a.created_at).toLocaleDateString(curLoc())} · 👁 ${a.views||0}</div>
     ${chips?`<div class="chips">${chips}</div>`:''}
     <p translate="no" style="margin-top:14px;white-space:pre-wrap">${esc(a.description||'')}</p>
+    ${own&&a.expires_at?`<p class="meta" style="margin-top:10px">ينتهي في ${new Date(a.expires_at).toLocaleDateString(curLoc())}</p>`:''}
     <div id="sl" style="margin-top:12px">${user?'<p class="meta">جاري التحميل…</p>':''}</div>
     <div class="row">
       <button class="btn ghost sm fav-d" data-fav="${a.id}" onclick="toggleFav('${a.id}')">♥ مفضلة</button>
       <button class="btn ghost sm" onclick="shareAd('${a.id}')">مشاركة</button>
-      ${own?`<button class="btn ghost sm" onclick="adForm('${a.id}')">تعديل</button><button class="btn ghost sm" onclick="toggleSold('${a.id}')">${a.status==='sold'?'إعادة الإعلان':'تم البيع / التأجير'}</button>`:''}
+      ${own?`<button class="btn gold sm" onclick="renewAd('${a.id}')">تجديد الإعلان</button><button class="btn ghost sm" onclick="adForm('${a.id}')">تعديل</button><button class="btn ghost sm" onclick="toggleSold('${a.id}')">${a.status==='sold'?'إعادة الإعلان':'تم البيع / التأجير'}</button>`:''}
       ${own||isAdmin?`<button class="btn red sm" onclick="delAd('${a.id}')">حذف</button>`:''}
       ${isAdmin?`<button class="btn gold sm" onclick="admFeature('${a.id}',${!!isFeat(a)})">${isFeat(a)?'إلغاء التمييز':'تمييز 7 أيام'}</button>`:''}
       ${!own?`<button class="btn ghost sm" onclick="reportView('${a.id}')">إبلاغ عن الإعلان</button>`:''}
-    </div>`);
-  paintFavs(); loadSeller(a);
+    </div>
+    <div id="sim"></div>`);
+  paintFavs(); loadSeller(a); loadSimilar(a);
 }
 async function loadSeller(a){
   const box = $('sl'); if (!box) return;
@@ -374,6 +381,25 @@ async function loadSeller(a){
   const ph = sd.phone || '';
   box.innerHTML = `<p class="meta">المعلن: <bdi translate="no">${esc(sd.name||'—')}</bdi></p><div class="row"><a class="btn" href="tel:${esc(ph)}">اتصل ${esc(ph)}</a><a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/${intl(ph)}?text=${encodeURIComponent(trText('أهلاً، بخصوص إعلانك على Zilx:')+' '+a.title)}">واتساب</a></div>`;
 }
+async function renewAd(id){
+  const { error } = await sb.rpc('renew_ad', { p_ad: id });
+  if (error) return alert(error.message);
+  alert(trText('تم تجديد الإعلان لمدة 60 يومًا.')); closeModal(); load();
+}
+async function loadSimilar(a){
+  const box = $('sim'); if (!box) return;
+  const { data } = await sb.from('ads').select('*').eq('category', a.category).neq('id', a.id).neq('status','hidden').gt('expires_at', new Date().toISOString()).order('created_at',{ascending:false}).limit(12);
+  if ($('sim') !== box || !data || !data.length) return;
+  const rows = data.sort((x,y) => (y.city===a.city) - (x.city===a.city)).slice(0,4);
+  rows.forEach(r => { if (!cache.find(x => x.id===r.id)) cache.push(r); });
+  box.innerHTML = `<h3 style="margin:18px 0 8px">إعلانات مشابهة</h3><div class="sim">${rows.map(r => card(r)).join('')}</div>`;
+  paintFavs();
+}
+$('box').addEventListener('click', e => {
+  const c = e.target.closest('.sim .ad'); if (!c) return;
+  const f = e.target.closest('[data-fav]'); if (f){ e.stopPropagation(); return toggleFav(f.dataset.fav); }
+  detail(c.dataset.id); $('box').scrollTop = 0;
+});
 async function delAd(id){ if (!confirm('تحذف الإعلان؟')) return; await sb.from('ads').delete().eq('id', id); closeModal(); load(); }
 async function toggleSold(id){
   const a = cache.find(x => x.id===id);
