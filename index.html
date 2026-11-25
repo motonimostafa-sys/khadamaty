@@ -216,7 +216,7 @@ $('yr').textContent = new Date().getFullYear();
 CITIES.forEach(c => $('citylist2').insertAdjacentHTML('beforeend', `<option value="${c}">`));
 
 function openModal(html){ $('box').removeAttribute('translate'); $('box').innerHTML = '<button class="x" aria-label="إغلاق" onclick="closeModal()">✕</button>' + html; $('modal').classList.remove('hide'); }
-function closeModal(){ $('modal').classList.add('hide'); }
+function closeModal(){ $('modal').classList.add('hide'); try { if (/^\/ad\//.test(location.pathname)) history.replaceState(null,'','/'); } catch(e){} }
 $('modal').addEventListener('click', e => { if (e.target.id==='modal') closeModal(); });
 
 /* ---------- الدخول والتسجيل ---------- */
@@ -481,12 +481,12 @@ async function toggleFav(id){
 }
 function showFavs(){ favOnly = true; mineOnly = false; load(); window.scrollTo({top:300,behavior:'smooth'}); }
 async function shareAd(id){
-  const a = cache.find(x => x.id===id), url = location.origin + location.pathname + '?ad=' + id;
+  const a = cache.find(x => x.id===id), url = /^(localhost|127\.0\.0\.1)$/.test(location.hostname) ? location.origin + location.pathname + '?ad=' + id : location.origin + '/ad/' + id;
   try { if (navigator.share) return await navigator.share({ title: a?.title, text: a?.title, url }); await navigator.clipboard.writeText(url); alert('تم نسخ رابط الإعلان'); }
   catch(e){ prompt('انسخ الرابط:', url); }
 }
 async function openParam(){
-  const id = new URLSearchParams(location.search).get('ad'); if (!id || opened) return; opened = true;
+  const id = new URLSearchParams(location.search).get('ad') || (location.pathname.match(/\/ad\/([0-9a-f-]{36})/i)||[])[1]; if (!id || opened) return; opened = true;
   let a = cache.find(x => x.id===id);
   if (!a){ const { data } = await sb.from('ads').select('*').eq('id', id).maybeSingle(); if (data){ cache.push(data); a = data; } }
   if (a) detail(id);
