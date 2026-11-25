@@ -1,0 +1,15 @@
+# بيزور Supabase كل 3 أيام عشان المشروع المجاني ما يتوقفش لو مفيش زوار
+name: keep-supabase-alive
+on:
+  schedule:
+    - cron: '0 6 */3 * *'
+  workflow_dispatch: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase
+        run: |
+          curl -fsS "https://lualdzpsgehrowewsixr.supabase.co/rest/v1/ads?select=id&limit=1" \
+            -H "apikey: sb_publishable_9jbY4Z8Cw9nfjrFsPHC58Q_xDbvsG2g" > /dev/null
+          echo "ok"
