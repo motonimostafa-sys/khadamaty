@@ -7,8 +7,8 @@
 <meta name="description" content="Zilx خدمات: موقع إعلانات مبوبة مجاني في مصر. اعرض أو دوّر على عربيات وشقق للبيع والإيجار وموبايلات ولابتوبات وخدمات.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem('zt')||'dark'}catch(e){}</script>
-<meta name="theme-color" content="#0d1030">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('zt')||'light'}catch(e){}</script>
+<meta name="theme-color" content="#ffffff">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Zilx خدمات">
@@ -106,25 +106,89 @@ label{display:block;font-size:14px;color:var(--mut);margin:12px 0 4px}
 .sim .ad h3{font-size:14px}
 .sim .price{font-size:15px}
 .sim .star{display:none}
+
+/* ===== تصميم v4: واجهة سوق إعلانات نظيفة (الشعار فوق الشمال، من غير هيرو كبير) ===== */
+:root{--bg:#0f1226;--bg2:#171a36;--card:#1a1e3e;--line:#2b3060;--tx:#eef0ff;--mut:#9aa1cc;--vio:#7a5cff;--pink:#ff4f93;--gold:#ffb524;--mint:#2fe3a8;--shadow:0 6px 20px rgba(0,0,0,.28)}
+[data-theme=light]{--bg:#f4f5fa;--bg2:#ffffff;--card:#ffffff;--line:#e2e5f0;--tx:#1b1f3b;--mut:#666d8d;--vio:#5b3df5;--pink:#f0457f;--gold:#d98a00;--mint:#0c7a55;--shadow:0 6px 20px rgba(27,31,59,.09)}
+body{background:var(--bg);line-height:1.6}
+.hdr{position:sticky;top:0;z-index:30;background:var(--bg2);border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+.hdr-in{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;direction:ltr}
+[dir=rtl] .hdr-in>:not(.brandmark){direction:rtl}
+.brandmark{display:flex;flex-direction:column;line-height:1;flex:0 0 auto;direction:ltr;text-align:left}
+.bm-logo{font-size:30px;font-weight:700;letter-spacing:-.03em;background:linear-gradient(100deg,var(--vio),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bm-sub{font-size:11px;font-weight:600;color:var(--gold);letter-spacing:.32em;margin-top:3px;padding-inline-start:2px}
+.search{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:4px 4px 4px 6px;margin:0;max-width:none}
+.search input{background:transparent;border:0;padding:8px 12px;flex:1;min-width:0;outline:0}
+.search .cityin{flex:0 0 130px;border-inline-start:1px solid var(--line);border-radius:0}
+.search .btn{padding:8px 20px;border-radius:10px}
+.ftog{display:none;background:transparent;border:0;font-size:18px;padding:0 6px;cursor:pointer;color:var(--mut)}
+.acts{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;white-space:nowrap;margin:0}
+.acts .btn{flex:0 0 auto}
+.langsel{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:6px 8px}
+.btn{background:var(--vio);border-radius:10px;box-shadow:none}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--tx)}
+.btn.gold{background:var(--gold);color:#241800}
+.tagline{font-family:'IBM Plex Sans Arabic',system-ui,sans-serif;font-size:13px;font-weight:400;color:var(--mut);text-align:center;margin:12px 0 0}
+.cats{margin-top:0;padding:12px 2px 8px;gap:8px}
+.cat{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:14px;color:var(--tx)}
+.cat span{font-size:17px}
+.cat.on{background:var(--vio);border-color:var(--vio);color:#fff}
+.filters{margin:4px 0 14px}
+.filters input,.filters select{background:var(--bg2);border-radius:10px;padding:7px 12px}
+.grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px}
+.ad{background:var(--bg2);border-radius:14px;box-shadow:none}
+.ad:hover{transform:translateY(-3px);border-color:var(--vio);box-shadow:var(--shadow)}
+.ad .im{background-color:var(--bg)}
+.ad .bd{padding:10px 12px 12px}
+.ad h3{font-size:15px}
+.price{color:var(--mint);font-size:17px}
+.ad.feat{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
+.fav{background:rgba(255,255,255,.92);color:#8a90b3;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.fav.on,.fav-d.on{background:var(--pink);color:#fff}
+.box{border-radius:18px;background:var(--bg2)}
+.foot{background:var(--bg2)}
+@media(max-width:760px){
+  .hdr-in{padding:8px 12px;gap:8px}
+  .brandmark{order:1;flex:1}
+  .langsel{order:2}
+  .search{order:3;flex:1 1 100%}
+  .acts{order:4;flex:1 1 100%}
+  .ftog{display:inline-block}
+  .filters{display:none}
+  .filters.open{display:flex}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .ad .bd{padding:8px 10px 10px}
+  .ad h3{font-size:14px}
+  .price{font-size:15px}
+}
+@media(min-width:761px){
+  .brandmark{order:1}
+  .search{order:2;flex:1 1 360px}
+  .acts{order:3}
+  .langsel{order:4}
+}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="top"><div class="acts" id="acts"></div><select id="lang" class="langsel" translate="no" aria-label="Language"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="tr">Türkçe</option><option value="ru">Русский</option><option value="zh">中文</option><option value="ms">Bahasa Melayu</option><option value="uz">Oʻzbekcha</option><option value="ps">پښتو</option><option value="fa">دری</option></select></div>
-  <h1 class="logo brand">Zilx</h1>
-  <div class="logo-sub">خدمات</div>
-  <p class="tag">اعرض اللي عندك أو دوّر على اللي محتاجه: عربيات، موتوسيكلات، شقق، موبايلات، لابتوبات، مواقع وتطبيقات وخدمات.</p>
-  <div class="search">
-    <input id="q" placeholder="ابحث عن أي حاجة…" aria-label="بحث">
-    <input id="city" list="citylist2" placeholder="المدينة / البلد" aria-label="المدينة" style="flex:0 0 140px;border-inline-start:1px solid var(--line)"><datalist id="citylist2"></datalist>
-    <button class="btn" id="go">بحث</button>
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brandmark" href="/" aria-label="Zilx"><span class="bm-logo brand">Zilx</span><span class="bm-sub">خدمات</span></a>
+    <div class="search">
+      <input id="q" placeholder="ابحث عن أي حاجة…" aria-label="بحث">
+      <input id="city" class="cityin" list="citylist2" placeholder="المدينة / البلد" aria-label="المدينة"><datalist id="citylist2"></datalist>
+      <button class="ftog" id="ftog" type="button" aria-label="تصفية">⚙</button>
+      <button class="btn" id="go">بحث</button>
+    </div>
+    <div class="acts" id="acts"></div>
+    <select id="lang" class="langsel" translate="no" aria-label="Language"><option value="ar">العربية</option><option value="en">English</option><option value="fr">Français</option><option value="es">Español</option><option value="de">Deutsch</option><option value="tr">Türkçe</option><option value="ru">Русский</option><option value="zh">中文</option><option value="ms">Bahasa Melayu</option><option value="uz">Oʻzbekcha</option><option value="ps">پښتو</option><option value="fa">دری</option></select>
   </div>
 </header>
 
 <main>
+  <h1 class="tagline">اعرض اللي عندك أو دوّر على اللي محتاجه: عربيات، موتوسيكلات، شقق، موبايلات، لابتوبات، مواقع وتطبيقات وخدمات.</h1>
   <div class="cats" id="cats"></div>
-  <div class="filters">
+  <div class="filters" id="filters">
     <input id="pmin" type="number" inputmode="numeric" placeholder="أقل سعر" aria-label="أقل سعر">
     <input id="pmax" type="number" inputmode="numeric" placeholder="أعلى سعر" aria-label="أعلى سعر">
     <select id="sort" aria-label="الترتيب"><option value="new">الأحدث</option><option value="low">الأرخص</option><option value="high">الأغلى</option></select>
@@ -551,6 +615,7 @@ $('grid').addEventListener('click', e => {
 $('wafab').href = 'https://wa.me/' + intl(SUPPORT_PHONE);
 consentInit();
 if ('serviceWorker' in navigator && location.protocol === 'https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
+$('ftog').onclick = () => $('filters').classList.toggle('open');
 $('go').onclick = () => load();
 $('q').addEventListener('keydown', e => { if (e.key==='Enter') load(); });
 ['city','sort','pmin','pmax'].forEach(i => $(i).onchange = () => load());
