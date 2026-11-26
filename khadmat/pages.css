@@ -16,3 +16,6 @@ ul{padding-inline-start:22px}
 .btn.wa{background:#25d366;color:#04230f}
 footer{text-align:center;color:var(--mut);padding:26px 16px;border-top:1px solid var(--line);font-size:14px}
 footer a{margin:0 8px}
+
+header{position:relative}
+.langsel{position:absolute;top:16px;inset-inline-end:16px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 8px;color:var(--tx);font:inherit}
