@@ -7,7 +7,7 @@
 <meta name="description" content="Zilx خدمات: موقع إعلانات مبوبة مجاني في مصر. اعرض أو دوّر على عربيات وشقق للبيع والإيجار وموبايلات ولابتوبات وخدمات.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem('zt')||'light'}catch(e){}</script>
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('zt2')||'light'}catch(e){}</script>
 <meta name="theme-color" content="#ffffff">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
@@ -167,6 +167,10 @@ body{background:var(--bg);line-height:1.6}
   .acts{order:3}
   .langsel{order:4}
 }
+.hdr-in>*{min-width:0}
+.search{min-width:0}
+.langsel{max-width:46vw}
+@media(max-width:760px){.search .cityin{flex:0 0 96px}.search input{padding:8px 8px}}
 </style>
 </head>
 <body>
@@ -596,7 +600,7 @@ async function admAddWord(){
   const { error } = await sb.from('banned_words').insert({ word:w });
   $('ad_wm').textContent = error ? error.message : 'تمت الإضافة'; $('ad_w').value = '';
 }
-function toggleTheme(){ const n = document.documentElement.dataset.theme==='light' ? 'dark' : 'light'; document.documentElement.dataset.theme = n; try { localStorage.setItem('zt', n); } catch(e){} }
+function toggleTheme(){ const n = document.documentElement.dataset.theme==='light' ? 'dark' : 'light'; document.documentElement.dataset.theme = n; try { localStorage.setItem('zt2', n); } catch(e){} }
 function enableTrackers(){
   if (GA_ID){ const g = document.createElement('script'); g.async = true; g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID; document.head.appendChild(g);
     window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); }; gtag('js', new Date()); gtag('config', GA_ID); }
