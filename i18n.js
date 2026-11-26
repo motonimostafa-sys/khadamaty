@@ -192,7 +192,8 @@ const ROWS = [
   ["تجديد الإعلان", "Renew ad", "Renouveler l'annonce", "Renovar anuncio", "Anzeige verlängern", "İlanı yenile", "Продлить объявление"],
   ["ينتهي في", "Expires on", "Expire le", "Caduca el", "Läuft ab am", "Bitiş tarihi:", "Истекает"],
   ["تم تجديد الإعلان لمدة 60 يومًا.", "Ad renewed for 60 days.", "Annonce renouvelée pour 60 jours.", "Anuncio renovado por 60 días.", "Anzeige für 60 Tage verlängert.", "İlan 60 gün için yenilendi.", "Объявление продлено на 60 дней."],
-  ["إعلانات مشابهة", "Similar ads", "Annonces similaires", "Anuncios similares", "Ähnliche Anzeigen", "Benzer ilanlar", "Похожие объявления"]
+  ["إعلانات مشابهة", "Similar ads", "Annonces similaires", "Anuncios similares", "Ähnliche Anzeigen", "Benzer ilanlar", "Похожие объявления"],
+  ["تصفية", "Filters", "Filtres", "Filtros", "Filter", "Filtrele", "Фильтры"]
 ];
 
 const maps = {};
